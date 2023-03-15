@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView ,Pressable } from 'react-native'
 import React from 'react'
 
 export default function GoalScrollViewItem(props) {
@@ -7,7 +7,7 @@ export default function GoalScrollViewItem(props) {
             <ScrollView>
                 <Text style={{ fontWeight: "bold", fontSize: 20, margin: 5, padding: 5 }}>List of goals</Text>
                 {props.courseGoals.map((goal) => {
-                    return <Text key={goal.key} style={styles.goalList}>{goal.val}</Text>
+                    return <Pressable android_ripple={{color:"#1111dd"}} onPress={props.deleteGoalHangler.bind(this,goal.key)}><Text key={goal.key} style={styles.goalList}>{goal.val}</Text></Pressable>
                 }
                 )}
             </ScrollView>
